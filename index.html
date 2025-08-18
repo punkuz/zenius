@@ -1,0 +1,250 @@
+<!-- index.html, duplicate and rename to about.html services.html portfolio.html tech.html team.html contact.html, change the active nav link and section content accordingly -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zenius Technology</title>
+
+  <!-- Inter for body, Space Grotesk for headings, both modern and readable -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Sticky header with clean nav, resembles juspay minimal chrome -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">Zenius<span>Technology</span></a>
+      <input id="menu-toggle" type="checkbox" aria-label="Open menu">
+      <label for="menu-toggle" class="burger"><span></span></label>
+      <nav class="menu">
+        <a class="active" href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#tech">Tech Stack</a>
+        <a href="#team">Team</a>
+        <a class="cta" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero, big message, strong CTA, subtle gradient like juspay -->
+  <section id="home" class="hero reveal">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1>We build clean, scalable solutions</h1>
+        <p>Software development and IT consulting that feels simple, runs fast, and grows with you.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="contact.html">Start a project</a>
+          <a class="btn ghost" href="services.html">See services</a>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <span class="num" data-count="120">0</span><span class="unit">+</span>
+            <p>Projects delivered</p>
+          </div>
+          <div class="stat">
+            <span class="num" data-count="30">0</span><span class="unit">%</span>
+            <p>Avg. performance gain</p>
+          </div>
+          <div class="stat">
+            <span class="num" data-count="8">0</span><span class="unit">yrs</span>
+            <p>Partner experience</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="orb orb-a"></div>
+        <div class="orb orb-b"></div>
+        <div class="card-glow">
+          <div class="glow"></div>
+          <div class="glow"></div>
+          <div class="glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section reveal">
+    <div class="container split">
+      <div>
+        <h2>About us</h2>
+        <p>We’re engineers and consultants who ship thoughtful software. Clear scope, strong craft, steady iteration.</p>
+        <p>From APIs to apps to cloud, our work stays reliable under load and easy to change when you need it.</p>
+      </div>
+      <ul class="bullets">
+        <li>Delivery first mindset</li>
+        <li>Security by default</li>
+        <li>Observable systems</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section reveal">
+    <div class="container">
+      <h2>Services</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Custom Software</h3>
+          <p>Web, mobile, and platform engineering, from idea to launch.</p>
+          <ul>
+            <li>Product discovery</li>
+            <li>Full stack delivery</li>
+            <li>Performance tuning</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>IT Consulting</h3>
+          <p>Architecture, audits, and roadmaps that cut toil and risk.</p>
+          <ul>
+            <li>Cloud migration</li>
+            <li>Cost optimization</li>
+            <li>Security reviews</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>DevOps Enablement</h3>
+          <p>Pipelines and platforms that speed up safe releases.</p>
+          <ul>
+            <li>CI CD design</li>
+            <li>IaC and automation</li>
+            <li>Observability</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="section reveal">
+    <div class="container">
+      <h2>Work</h2>
+      <div class="grid portfolio">
+        <!-- Repeat items as needed -->
+        <a class="tile" href="#">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Project 1">
+          <div class="tile-info">
+            <h4>Payments dashboard</h4>
+            <p>Latency down 35 percent, cleaner ops surface</p>
+          </div>
+        </a>
+        <a class="tile" href="#">
+          <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1200&auto=format&fit=crop" alt="Project 2">
+          <div class="tile-info">
+            <h4>Logistics mobile app</h4>
+            <p>Offline first, sync safe, smooth UX</p>
+          </div>
+        </a>
+        <a class="tile" href="#">
+          <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1200&auto=format&fit=crop" alt="Project 3">
+          <div class="tile-info">
+            <h4>Data platform</h4>
+            <p>Real time pipeline, trusted metrics</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section id="tech" class="section reveal">
+    <div class="container">
+      <h2>Tech stack</h2>
+      <ul class="tech">
+        <li title="JavaScript">JS</li>
+        <li title="TypeScript">TS</li>
+        <li title="React">React</li>
+        <li title="Node.js">Node</li>
+        <li title="Python">Py</li>
+        <li title="Go">Go</li>
+        <li title="PostgreSQL">PG</li>
+        <li title="AWS">AWS</li>
+        <li title="Docker">Docker</li>
+        <li title="Kubernetes">K8s</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="section reveal">
+    <div class="container">
+      <h2>Team</h2>
+      <div class="cards team">
+        <article class="person">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop" alt="Member">
+          <div class="meta"><strong>Punkuz Shah</strong><span>Principal Engineer</span></div>
+        </article>
+        <article class="person">
+          <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=600&auto=format&fit=crop" alt="Member">
+          <div class="meta"><strong>Priya Nair</strong><span>Delivery Lead</span></div>
+        </article>
+        <article class="person">
+          <img src="https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?q=80&w=600&auto=format&fit=crop" alt="Member">
+          <div class="meta"><strong>Samir Patel</strong><span>Solutions Architect</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section reveal">
+    <div class="container split">
+      <div>
+        <h2>Contact</h2>
+        <p>Tell us what you’re building, we’ll bring a plan and a clear path to value.</p>
+        <p><strong>Email</strong> hello@zenius.tech<br><strong>Phone</strong> +1 555 0100</p>
+      </div>
+      <form class="form" action="#" method="post">
+        <label>Name<input required name="name" placeholder="Your name"></label>
+        <label>Email<input required type="email" name="email" placeholder="you@company.com"></label>
+        <label>Message<textarea required name="message" rows="4" placeholder="A short brief"></textarea></label>
+        <button class="btn primary" type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container foot">
+      <p>© <span id="year"></span> Zenius Technology</p>
+      <p>Built with clarity, shipped with care</p>
+    </div>
+  </footer>
+
+  <!-- Tiny JS for counters and reveal animations, pure CSS otherwise -->
+  <script>
+    // year stamp
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // intersection reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('in');
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // stat counters
+    const nums = document.querySelectorAll('.num');
+    const ion = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const end = parseInt(el.dataset.count, 10);
+        let cur = 0;
+        const step = Math.max(1, Math.ceil(end / 60));
+        const t = setInterval(() => {
+          cur += step;
+          if (cur >= end) { cur = end; clearInterval(t); }
+          el.textContent = cur;
+        }, 20);
+        ion.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    nums.forEach(n => ion.observe(n));
+  </script>
+</body>
+</html>
