@@ -74,8 +74,10 @@ img {
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
   background: rgba(5, 5, 6, 0.6);
   backdrop-filter: saturate(140%) blur(10px);
@@ -184,7 +186,11 @@ img {
 
 .hero {
   padding: 6rem 0 4rem;
-  background: radial-gradient(600px 300px at 75% 10%, rgba(21, 59, 180, 0.25), transparent 55%),
+  background: radial-gradient(
+      600px 300px at 75% 10%,
+      rgba(21, 59, 180, 0.25),
+      transparent 55%
+    ),
     radial-gradient(500px 260px at 85% 40%, rgba(42, 84, 45, 0.25), transparent 60%);
 }
 
@@ -236,7 +242,11 @@ img {
 .card-glow .glow {
   height: 120px;
   border-radius: 16px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
   border: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow: var(--shadow);
   transform: translateY(10px);
