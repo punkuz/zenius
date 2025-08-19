@@ -18,7 +18,7 @@
     <!-- Sticky header with clean nav, resembles juspay minimal chrome -->
     <header class="site-header">
       <div class="container nav">
-        <a class="brand" href="index.html">Zenius<span>Technology</span></a>
+        <a class="brand" href="index.html">Zenius <span>Technology</span></a>
         <input id="menu-toggle" type="checkbox" aria-label="Open menu" />
         <div class="mobile-actions">
           <div class="globe-icon"></div>
@@ -30,13 +30,13 @@
           </label>
         </div>
         <nav class="menu">
-          <a class="active" href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#portfolio">Portfolio</a>
-          <a href="#tech">Tech Stack</a>
-          <a href="#team">Team</a>
-          <a class="cta" href="#contact">Contact</a>
+          <a class="active" href="#home" data-close>Home</a>
+          <a href="#about" data-close>About</a>
+          <a href="#services" data-close>Services</a>
+          <a href="#portfolio" data-close>Portfolio</a>
+          <a href="#tech" data-close>Tech Stack</a>
+          <a href="#team" data-close>Team</a>
+          <a class="cta" href="#contact" data-close>Contact</a>
         </nav>
       </div>
     </header>
@@ -310,6 +310,15 @@
         { threshold: 0.6 }
       );
       nums.forEach((n) => ion.observe(n));
+
+       // close mobile menu on nav click
+      const menuToggle = document.getElementById("menu-toggle"); // checkbox that drives the slide-out
+      document.querySelectorAll(".menu a[data-close]").forEach((a) => {
+        a.addEventListener("click", () => {
+          // when any menu link is clicked
+          if (menuToggle.checked) menuToggle.checked = false; // uncheck to close the menu
+        });
+      });
     </script>
   </body>
 </html>
