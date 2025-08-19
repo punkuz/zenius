@@ -128,7 +128,9 @@ img {
   box-shadow: var(--shadow);
 }
 
-.burger {
+.mobile-actions,
+.burger,
+.close {
   display: none;
 }
 
@@ -137,6 +139,43 @@ img {
 }
 
 @media (max-width: 880px) {
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    background: var(--bg-2);
+  }
+
+  .brand {
+    padding-left: 1.2rem;
+  }
+
+  .mobile-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding-right: 0.5rem;
+  }
+
+  .globe-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: var(--card);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
+  }
+
+  .globe-icon::after {
+    content: "🌐"; /* Placeholder for the globe icon */
+    font-size: 1.2rem;
+  }
+
   .burger,
   .close {
     display: grid;
@@ -145,33 +184,10 @@ img {
     height: 40px;
     cursor: pointer;
     z-index: 1000;
-  }
-
-  .burger {
     position: relative;
-  }
-
-  /* Hide the hamburger icon when the menu is open */
-  #menu-toggle:checked ~ .close-menu {
-    transform: rotate(45deg); /* Optional: Animate the X */
-  }
-
-  /* Style for the close button, which is the same element as the burger, just transformed */
-  .close {
-    position: fixed; /* Position fixed relative to viewport */
-    top: 0.9rem;
-    right: 2rem;
-    display: none; /* Hidden by default */
-  }
-
-  /* Show the close button when the menu is open */
-  #menu-toggle:checked + .close-menu {
-    display: grid;
-  }
-
-  /* You also need to hide the burger icon itself when the menu is open */
-  #menu-toggle:checked ~ .burger:not(.close-menu) {
-    display: none;
+    background: var(--card);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
   }
 
   .burger span {
@@ -181,6 +197,7 @@ img {
     position: relative;
     transition: all 0.25s ease;
   }
+
   .burger span::before,
   .burger span::after {
     content: "";
@@ -191,22 +208,26 @@ img {
     background: var(--ink);
     transition: transform 0.25s ease;
   }
+
   .burger span::before {
     top: -6px;
   }
+
   .burger span::after {
     top: 6px;
   }
-  #menu-toggle {
+
+  .close {
     display: none;
   }
+
   .close span {
     position: relative;
     width: 20px;
     height: 2px;
-    left: 19px;
     background: var(--ink);
-    transform: rotate(45deg); /* Create the 'X' shape */
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
   }
 
   .close span::before {
@@ -218,53 +239,70 @@ img {
     height: 2px;
     background: var(--ink);
     transform: rotate(-90deg);
+    transition: transform 0.3s ease;
   }
+
+  /* When the checkbox is checked, toggle the visibility */
+  #menu-toggle:checked ~ .mobile-actions .burger {
+    display: none;
+  }
+
+  #menu-toggle:checked ~ .mobile-actions .close {
+    display: grid;
+  }
+
   .menu {
     position: fixed;
-    top: 0; /* Align to the top */
-    right: 0; /* Align to the right */
-    height: 100vh; /* Make it full height */
-    width: 250px; /* Set a specific width */
-    background: var(--bg-2); /* A slightly different background */
-    display: flex; /* Always display but transform off-screen */
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(80%, 300px);
+    background: var(--bg);
+    display: flex;
     flex-direction: column;
     gap: 1.2rem;
     padding: 2rem;
     overflow-y: auto;
     z-index: 999;
-    transform: translateX(100%); /* Start it off-screen to the right */
-    transition: transform 0.3s ease-in-out; /* Add a smooth transition */
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4); /* Add a subtle shadow */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
   }
 
-  .menu a {
-    font-size: 1.4rem;
-    padding: 0.75rem 0;
-    color: var(--ink);
-  }
-
-  /* When the toggle is checked, move the menu into view */
   #menu-toggle:checked ~ .menu {
     transform: translateX(0);
   }
 
-  #menu-toggle:checked ~ .burger {
-    display: none; /* Hide burger when menu is open */
+  .menu a {
+    padding: 1.2rem 0;
+    font-size: 1.2rem;
+    color: var(--ink);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
   }
 
-  #menu-toggle:checked ~ .close {
-    display: grid; /* Show close button when menu is open */
+  .menu a:last-of-type {
+    border-bottom: none;
   }
 
-  @keyframes slideDown {
-    from {
-      transform: translateY(-10px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
+  .menu a.cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+    border: none;
+  }
+
+  .nav a.brand {
+    padding-right: 0;
+  }
+
+  /* Corrected rule to show the Contact button in the mobile menu */
+  .nav a.cta {
+    display: none;
+  }
+  .menu .cta {
+    display: block; /* Ensures the mobile version is visible */
   }
 }
 
