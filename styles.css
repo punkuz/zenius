@@ -137,18 +137,49 @@ img {
 }
 
 @media (max-width: 880px) {
-  .burger {
+  .burger,
+  .close {
     display: grid;
     place-items: center;
     width: 40px;
     height: 40px;
     cursor: pointer;
+    z-index: 1000;
   }
+
+  .burger {
+    position: relative;
+  }
+
+  /* Hide the hamburger icon when the menu is open */
+  #menu-toggle:checked ~ .close-menu {
+    transform: rotate(45deg); /* Optional: Animate the X */
+  }
+
+  /* Style for the close button, which is the same element as the burger, just transformed */
+  .close {
+    position: fixed; /* Position fixed relative to viewport */
+    top: 0.9rem;
+    right: 2rem;
+    display: none; /* Hidden by default */
+  }
+
+  /* Show the close button when the menu is open */
+  #menu-toggle:checked + .close-menu {
+    display: grid;
+  }
+
+  /* You also need to hide the burger icon itself when the menu is open */
+  #menu-toggle:checked ~ .burger:not(.close-menu) {
+    display: none;
+  }
+
   .burger span {
     width: 20px;
     height: 2px;
     background: var(--ink);
     position: relative;
+    transition: all 0.25s ease;
   }
   .burger span::before,
   .burger span::after {
@@ -158,6 +189,7 @@ img {
     width: 20px;
     height: 2px;
     background: var(--ink);
+    transition: transform 0.25s ease;
   }
   .burger span::before {
     top: -6px;
@@ -168,19 +200,71 @@ img {
   #menu-toggle {
     display: none;
   }
-  .menu {
-    position: absolute;
-    right: 1rem;
-    top: 64px;
-    background: rgba(15, 17, 22, 0.98);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    padding: 0.6rem;
-    display: none;
-    flex-direction: column;
+  .close span {
+    position: relative;
+    width: 20px;
+    height: 2px;
+    left: 19px;
+    background: var(--ink);
+    transform: rotate(45deg); /* Create the 'X' shape */
   }
+
+  .close span::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: var(--ink);
+    transform: rotate(-90deg);
+  }
+  .menu {
+    position: fixed;
+    top: 0; /* Align to the top */
+    right: 0; /* Align to the right */
+    height: 100vh; /* Make it full height */
+    width: 250px; /* Set a specific width */
+    background: var(--bg-2); /* A slightly different background */
+    display: flex; /* Always display but transform off-screen */
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 2rem;
+    overflow-y: auto;
+    z-index: 999;
+    transform: translateX(100%); /* Start it off-screen to the right */
+    transition: transform 0.3s ease-in-out; /* Add a smooth transition */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4); /* Add a subtle shadow */
+  }
+
+  .menu a {
+    font-size: 1.4rem;
+    padding: 0.75rem 0;
+    color: var(--ink);
+  }
+
+  /* When the toggle is checked, move the menu into view */
   #menu-toggle:checked ~ .menu {
-    display: flex;
+    transform: translateX(0);
+  }
+
+  #menu-toggle:checked ~ .burger {
+    display: none; /* Hide burger when menu is open */
+  }
+
+  #menu-toggle:checked ~ .close {
+    display: grid; /* Show close button when menu is open */
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 }
 
